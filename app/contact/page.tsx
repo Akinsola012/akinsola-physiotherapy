@@ -1,0 +1,6 @@
+import { ContactForm } from "../../components/contact-form";
+import { practice } from "../../components/site-data";
+
+export default function ContactPage() {
+  return <><section className="page-hero shell"><p className="eyebrow">Contact</p><h1>Let&apos;s discuss the support you need.</h1><p className="lead">Tell me whether you are looking for physiotherapy for yourself, a family member, a patient or your organisation.</p></section><section className="section shell contact-grid"><div className="contact-details"><p className="eyebrow">Get in touch</p><h2>Contact details</h2><dl><div><dt>Phone</dt><dd><a href={practice.phoneHref}>{practice.phone}</a></dd></div><div><dt>WhatsApp</dt><dd><a href={practice.whatsappHref}>Start a WhatsApp conversation</a></dd></div><div><dt>Email</dt><dd><a href={practice.emailHref}>{practice.email}</a></dd></div><div><dt>Service area</dt><dd>{practice.serviceArea}</dd></div><div><dt>Hours</dt><dd>[Add your working hours]</dd></div></dl><p className="form-note">This website does not provide emergency care. For urgent symptoms or a medical emergency, seek immediate medical help.</p></div><div><p className="eyebrow">Enquiry form</p><h2>Send a message</h2><ContactForm /></div></section></>;
+}
