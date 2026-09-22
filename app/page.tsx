@@ -1,39 +1,230 @@
 import Link from "next/link";
-import { practice, services } from "../components/site-data";
+import { practice } from "../components/site-data";
 
-export default function Home() {
+export const metadata = {
+  title: `${practice.name} — Home Physiotherapy in Ibadan`,
+  description: "Licensed physiotherapists bringing expert care to your home."
+};
+
+export default function HomePage() {
   return (
-    <>
+    <main>
+      {/* HERO */}
       <section className="hero">
         <div className="shell hero-grid">
           <div>
-            <p className="eyebrow">Home visits in {practice.serviceArea}</p>
-            <h1>Physiotherapy that helps you move with greater confidence.</h1>
-            <p className="lead">Personalised rehabilitation for pain, recovery and everyday movement. I work with patients, families, hospitals, clinics and organisations to build practical plans that fit real life.</p>
-            <div className="button-row"><Link className="button" href="/contact">Book an assessment</Link><Link className="text-link" href="/referrals">Refer a patient <span aria-hidden="true">→</span></Link></div>
-            <p className="hero-note">{practice.credentials} · By appointment</p>
+            <p className="eyebrow">{practice.credentials}</p>
+            <h1>Home Physiotherapy You Can Trust</h1>
+            <p className="lead">
+              Licensed physiotherapists bringing expert care to your doorstep.
+              Personalised recovery, at your pace, in your own space.
+            </p>
+            <div className="button-row">
+              <Link className="button" href="/contact">
+                Book a Home Visit
+              </Link>
+              <a className="text-link" href={practice.phoneHref}>
+                Call {practice.phone}
+              </a>
+            </div>
+            <p className="hero-note">
+              Serving {practice.serviceArea} · {practice.hours}
+            </p>
           </div>
-          <div className="image-placeholder hero-image" role="img" aria-label="Placeholder for a professional photograph of a physiotherapist guiding a patient through a home exercise">
-            <span>Replace with your professional photograph</span>
-            <strong>Care that meets people where they are.</strong>
+          <div
+  style={{
+    position: "relative",
+    width: "100%",
+    height: "400px",
+    borderRadius: "12px",
+    overflow: "hidden"
+  }}
+>
+  <img
+    src="/images/hero-photo.jpg"
+    alt="Brave Rehab physiotherapist at work"
+    style={{
+      width: "100%",
+      height: "100%",
+      objectFit: "cover"
+    }}
+  />
+</div>
+        </div>
+      </section>
+
+      {/* TRUST */}
+      <section className="section">
+        <div className="shell">
+          <div className="detail-grid">
+            <div>
+              <p className="eyebrow">Licensed</p>
+              <p>Licensed physiotherapists you can trust.</p>
+            </div>
+            <div>
+              <p className="eyebrow">Home Visits</p>
+              <p>We come to you — across South-West Nigeria.</p>
+            </div>
+            <div>
+              <p className="eyebrow">7 Days a Week</p>
+              <p>Available Monday to Sunday, 7am – 7pm.</p>
+            </div>
+            <div>
+              <p className="eyebrow">One-on-One</p>
+              <p>Personal sessions focused on your recovery.</p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="section shell intro-grid">
-        <div><p className="eyebrow">A patient-centred approach</p><h2>Care built around your goals</h2></div>
-        <p className="lead">Pain, surgery, illness or a gradual loss of balance can make ordinary tasks feel difficult. We start by understanding what matters most to you, then create a clear plan for your next step.</p>
+{/* PACKAGES PREVIEW */}
+<section className="section tint">
+  <div className="shell">
+    <div className="section-heading">
+      <div>
+        <p className="eyebrow">Packages</p>
+        <h2>Transparent pricing, no hidden fees.</h2>
+      </div>
+      <Link className="text-link" href="/pricing">
+        View all packages →
+      </Link>
+    </div>
+
+    <div className="pricing-grid">
+      <div className="pricing-card">
+        <p className="eyebrow">3 Sessions</p>
+        <h3>Starter</h3>
+        <p className="pricing-amount">₦75,000</p>
+        <p className="pricing-desc">
+          Ideal for foundational assessment and immediate concerns.
+        </p>
+        <Link className="button" href="/pricing" style={{ marginTop: "auto" }}>
+          See Details
+        </Link>
+      </div>
+
+      <div className="pricing-card featured">
+        <div className="pricing-badge">Most Popular</div>
+        <p className="eyebrow">5 Sessions</p>
+        <h3>Comprehensive</h3>
+        <p className="pricing-amount">₦120,000</p>
+        <p className="pricing-desc">
+          For conditions needing sustained, structured care.
+        </p>
+        <Link className="button" href="/pricing" style={{ marginTop: "auto" }}>
+          See Details
+        </Link>
+      </div>
+
+      <div className="pricing-card">
+        <p className="eyebrow">9 Sessions</p>
+        <h3>Intensive Care</h3>
+        <p className="pricing-amount">₦210,000</p>
+        <p className="pricing-desc">
+          Premium care for complex or ongoing conditions.
+        </p>
+        <Link className="button" href="/pricing" style={{ marginTop: "auto" }}>
+          See Details
+        </Link>
+      </div>
+    </div>
+  </div>
+</section>
+
+      {/* WHAT WE TREAT PREVIEW */}
+      <section className="section tint">
+        <div className="shell">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">What We Treat</p>
+              <h2>Conditions we see every day.</h2>
+            </div>
+            <Link className="text-link" href="/services">
+              View all conditions →
+            </Link>
+          </div>
+
+          <div className="service-grid">
+            <Link className="service-card" href="/services/back-pain-sciatica">
+              <h3>Back Pain & Sciatica</h3>
+              <p>Lower back pain, disc problems, and shooting leg pain.</p>
+              <span>Learn more →</span>
+            </Link>
+            <Link className="service-card" href="/services/stroke">
+              <h3>Stroke Recovery</h3>
+              <p>Regain movement, balance, and independence after stroke.</p>
+              <span>Learn more →</span>
+            </Link>
+            <Link className="service-card" href="/services/knee-pain">
+              <h3>Knee Pain</h3>
+              <p>Osteoarthritis, injuries, and post-surgery recovery.</p>
+              <span>Learn more →</span>
+            </Link>
+          </div>
+        </div>
       </section>
 
-      <section className="section tint"><div className="shell"><div className="section-heading"><div><p className="eyebrow">Services</p><h2>Support for movement, recovery and work</h2></div><Link className="text-link" href="/services">View all services <span aria-hidden="true">→</span></Link></div><div className="service-grid">{services.map((service) => <Link className="service-card" key={service.slug} href={`/services/${service.slug}`}><p className="card-number">0{services.indexOf(service) + 1}</p><h3>{service.title}</h3><p>{service.summary}</p><span>Learn more <b aria-hidden="true">→</b></span></Link>)}</div></div></section>
+      {/* HOW TO GET STARTED */}
+      <section className="how-to-start">
+        <div className="shell">
+          <div className="section-header">
+            <p className="eyebrow">How to Get Started</p>
+            <h2>Getting started is simpler than you think.</h2>
+            <p>
+              Here is what the process looks like — from your first call to your
+              first home visit.
+            </p>
+          </div>
 
-      <section className="section shell"><p className="eyebrow">What to expect</p><h2>A straightforward path to your next step</h2><ol className="steps"><li><span>01</span><div><h3>Talk to me</h3><p>Tell me what is happening, where you are located and the support you need.</p></div></li><li><span>02</span><div><h3>Assessment</h3><p>I review your history, movement, daily activities and goals.</p></div></li><li><span>03</span><div><h3>Personalised plan</h3><p>We agree realistic rehabilitation goals and a plan that fits your life.</p></div></li><li><span>04</span><div><h3>Guided progress</h3><p>Sessions and home guidance are reviewed as you progress.</p></div></li></ol></section>
+          <div className="steps-grid">
+            <div className="step-card">
+              <div className="step-number">1</div>
+              <h3>Call or Message Us</h3>
+              <p>
+                Reach out by phone at{" "}
+                <a href={practice.phoneHref}>
+                  <strong>{practice.phone}</strong>
+                </a>{" "}
+                or through our contact form. No referral needed. We respond the
+                same day.
+              </p>
+            </div>
 
-      <section className="section shell partner-section"><div><p className="eyebrow">For patients and partners</p><h2>Rehabilitation that connects the right people.</h2></div><div className="partner-cards"><article><h3>Patients and families</h3><p>Professional physiotherapy in a setting that supports comfort, routine and recovery.</p><Link href="/contact">Make an enquiry →</Link></article><article><h3>Hospitals and clinics</h3><p>Support continuity of rehabilitation after discharge or between appointments.</p><Link href="/referrals">Refer a patient →</Link></article><article><h3>Organisations</h3><p>Practical ergonomic assessments, education and workplace support.</p><Link href="/contact">Discuss a programme →</Link></article></div></section>
+            <div className="step-card">
+              <div className="step-number">2</div>
+              <h3>Free Assessment</h3>
+              <p>
+                We conduct a brief, confidential assessment to understand your
+                situation and determine the right treatment plan. We also
+                explain our packages and pricing.
+              </p>
+            </div>
 
-      <section className="section video-section"><div className="shell video-grid"><div className="video-placeholder" role="img" aria-label="Placeholder for a welcome video from the physiotherapist"><span>Welcome video</span><button type="button" aria-label="Video placeholder">▶</button></div><div><p className="eyebrow">Meet your physiotherapist</p><h2>Professional care starts with a conversation.</h2><p>Use this space for a short captioned video introducing yourself, the people you help and how to get started. A genuine video builds more trust than generic stock footage.</p><Link className="text-link" href="/about">About my approach <span aria-hidden="true">→</span></Link></div></div></section>
+            <div className="step-card">
+              <div className="step-number">3</div>
+              <h3>Begin Treatment</h3>
+              <p>
+                Most patients start within the same week. Your first visit
+                includes a full assessment, meeting your physiotherapist, and
+                starting your personalised recovery plan.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <section className="section shell callout"><div><p className="eyebrow">Start here</p><h2>Ready to discuss the right support?</h2><p>Book an assessment, refer a patient or contact me to discuss a collaboration.</p></div><div className="button-row"><Link className="button" href="/contact">Book an assessment</Link><Link className="button button-outline" href="/referrals">Refer a patient</Link></div></section>
-    </>
+      {/* CTA */}
+      <section className="section">
+        <div className="shell callout">
+          <div>
+            <h2>Ready to start your recovery?</h2>
+            <p>Book a home visit or send us a WhatsApp message.</p>
+          </div>
+          <Link className="button" href="/contact">
+            Book a Home Visit
+          </Link>
+        </div>
+      </section>
+    </main>
   );
 }
